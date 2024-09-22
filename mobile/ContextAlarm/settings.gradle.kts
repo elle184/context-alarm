@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "context-alarm"
+rootProject.name = "Context Alarm"
 include(":app")
