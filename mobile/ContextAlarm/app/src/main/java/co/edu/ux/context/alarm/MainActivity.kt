@@ -1,5 +1,6 @@
 package co.edu.ux.context.alarm
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.edu.ux.context.alarm.ui.theme.ContextAlarmTheme
@@ -33,7 +35,7 @@ class MainActivity : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    Greeting(name = "Android")
+                    Alarms()
                 }
             }
         }
@@ -49,9 +51,18 @@ fun ContextAlarm(modifier: Modifier = Modifier
 @Composable
 fun Alarms(modifier: Modifier = Modifier
     , alarms: List<String> = List(10) {"Alarma $it"}) {
-    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
-        items(items = alarms) {
-            alarm -> Greeting(name = alarm)
+    Column {
+        Row {
+            Column(modifier = Modifier.weight(1f)
+                .padding(bottom = 8.dp)) {
+                Text("Vacio")
+            }
+            Text("Crear alarma")
+        }
+        LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
+            items(items = alarms) { alarm ->
+                Greeting(name = alarm)
+            }
         }
     }
 }
@@ -61,7 +72,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     val expanded = remember { mutableStateOf(false) }
     val extraPadding = if (expanded.value) 48.dp else 0.dp
 
-    Surface(color = MaterialTheme.colorScheme.primary
+    Surface(color = Color(0xFF985D9C)
         , modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)) {
         Row(modifier = Modifier.padding(24.dp)) {
             Column(modifier = Modifier
@@ -76,10 +87,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true, widthDp = 320)
+@Preview(
+    showBackground = true
+    , widthDp = 320
+    , uiMode = Configuration.UI_MODE_NIGHT_YES
+    , name = "GreetingPreviewDark"
+)
 @Composable
 fun GreetingPreview() {
     ContextAlarmTheme {
-        ContextAlarm()
+        ContextAlarm(modifier = Modifier.fillMaxSize())
     }
 }
