@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Context Alarm</string>
+    <string name="title_activity_fondo_pantalla">FondoPantalla</string>
 </resources>
