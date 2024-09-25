@@ -4,4 +4,5 @@ data class Alarm(
     val name : String
     , val ringtone : String
     , val frequency : String
-    , val hour : String)
+    , val hour : String
+    , val minutes : String)

@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.layout.Column
@@ -38,6 +39,12 @@ import co.edu.ux.context.alarm.data.Alarm
 import co.edu.ux.context.alarm.ui.theme.ContextAlarmTheme
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +54,7 @@ class MainActivity : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    Alarms()
+                    GreetingPreview()
                 }
             }
         }
@@ -71,10 +78,10 @@ fun AddImage(
 }
 
 @Composable
-fun SwitchAlarmState() {
+fun SwitchAlarmState(modifier: Modifier) {
     val switchChecked by remember { mutableStateOf(true) }
 
-    Switch(checked = true, onCheckedChange = null)
+    Switch(checked = true, onCheckedChange = null, modifier = modifier)
 }
 
 @Composable
@@ -100,9 +107,9 @@ private fun NavigationBarContextAlarm(modifier: Modifier = Modifier) {
 @Composable
 fun Alarms(modifier: Modifier = Modifier) {
     var alarms = mutableListOf(
-        Alarm("Alarma 1", "Ringtone 1", "L-M-V", "12:00")
-        , Alarm("Alarma 2", "Ringtone 2", "L-M-V", "12:00")
-        , Alarm("Alarma 3", "Ringtone 3", "L-M-V", "12:00")
+        Alarm("Alarma 1", "Ringtone 1", "L-M-V", "12", minutes = "30")
+        , Alarm("Alarma 2", "Ringtone 2", "L-M-V", "12", minutes = "31")
+        , Alarm("Alarma 3", "Ringtone 3", "L-M-V", "12" , minutes = "30")
     )
 
     Column {
@@ -125,7 +132,6 @@ fun Alarms(modifier: Modifier = Modifier) {
                 Greeting(alarm = alarm)
             }
         }
-
     }
 }
 
@@ -135,17 +141,39 @@ fun Greeting(alarm: Alarm, modifier: Modifier = Modifier) {
     val extraPadding = if (expanded.value) 48.dp else 0.dp
 
     Surface(color = Color(0xFF985D9C)
-        , modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)) {
+        , modifier = Modifier
+            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .clip(MaterialTheme.shapes.small)) {
         Row(modifier = Modifier.padding(24.dp)) {
             Column(modifier = Modifier
                 .weight(1f)
                 .padding(bottom = extraPadding)) {
-                Text(text = alarm.name)
-                Text(text = alarm.ringtone)
-                Text(text = alarm.frequency)
+                Text(text = alarm.name
+                    , fontWeight = FontWeight.Bold
+                    , fontSize = 22.sp
+                    , color = Color(0xFF27042B))
+                Row {
+                    AddImage(
+                        painterResource(id = R.drawable.ringtone_icon)
+                        , modifier = Modifier.size(25.dp))
+                    Text(text = alarm.ringtone, color = Color(0xFF27042B))
+                }
+                Text(text = alarm.frequency, color = Color(0xFF27042B))
             }
-            Text(text = alarm.hour)
-            SwitchAlarmState()
+            Column {
+                Text(text = alarm.hour
+                    , fontSize = 50.sp
+                    , fontWeight = FontWeight.Bold
+                    , color = Color(0xFF27042B))
+                Text(text = alarm.minutes
+                    , fontSize = 50.sp
+                    , fontWeight = FontWeight.Bold
+                    , color = Color(0xFF27042B))
+            }
+            SwitchAlarmState(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(start = 10.dp))
         }
     }
 }
@@ -159,10 +187,15 @@ fun Greeting(alarm: Alarm, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     ContextAlarmTheme {
-        Scaffold(
-            bottomBar = { NavigationBarContextAlarm() }
-        ) { padding ->
-            ContextAlarm(modifier = Modifier.padding(padding))
+        Box(Modifier.background(
+            Brush.verticalGradient(
+                listOf(Color(0xFF985D9C), Color(0xFF27042B))))) {
+            Scaffold(
+                bottomBar = { NavigationBarContextAlarm() }
+                , containerColor = Color.Transparent
+            ) { padding ->
+                ContextAlarm(modifier = Modifier.padding(padding))
+            }
         }
     }
 }

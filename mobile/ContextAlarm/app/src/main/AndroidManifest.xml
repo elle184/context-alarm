@@ -13,6 +13,10 @@
         android:theme="@style/Theme.ContextAlarm"
         tools:targetApi="31">
         <activity
+            android:name=".Reporte"
+            android:exported="false"
+            android:theme="@style/Theme.ContextAlarm" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
