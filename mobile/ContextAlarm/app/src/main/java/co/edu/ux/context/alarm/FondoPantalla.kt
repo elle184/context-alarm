@@ -69,7 +69,7 @@ fun AlarmDetailScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF7B3A82)) // Fondo morado que rodea la pantalla
+            .background(Color(0xFFB838E7)) // Fondo morado que rodea la pantalla
     ) {
         // Imagen de fondo
         Image(
