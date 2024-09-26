@@ -1,0 +1,233 @@
+.sectionImages{
+    margin-top: 0.3rem;
+  }
+
+  .sectionBorder{
+    margin-top: 2rem;
+    border: 5px;
+    border-color: black;
+  }
+  .botonLogin{
+    margin-right: 1rem;
+    width: 142px;
+    height: 46px;
+    border-color: #27042B; 
+    background-color: #985D9C;    
+    font-family: Roboto;
+    color: #FFFFFF;  
+    font-size: 16px;
+  }
+
+  #principal {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #BCBCBC;
+  }
+
+  #sidebar-container{
+    min-height: 100vh;
+  }
+
+  .bg-primary{
+    background-color: rgba(152, 93, 156, 0.6) !important;
+  }
+  .line1{
+    border-bottom: 2px solid #FFFFFF;
+  }
+
+  .line{
+    border-bottom: 1px solid #BCBCBC;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 1rem;
+  }
+
+  #sidebar-container .menu{
+    width: 18rem;
+  }
+
+  .circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #27042B  !important;
+    background-color: #985D9C !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  .circle2 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid #27042B  !important;
+    background-color: #FFFFFF !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .fa-clock {
+    color: white !important;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;    
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #FFFFFF;
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    font-size: 20px; /* Tamaño de letra de 24px */
+    color: black; /* Color negro */
+}
+
+.atipo{
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    font-size: 16px; /* Tamaño de letra de 24px */
+    color: black; /* Color negro */
+}
+
+/* Contenedor de alarmas */
+.alarm-container {
+    flex: 1;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+/* Tarjetas de alarma */
+.alarm-card {
+    background-color: rgba(152, 93, 156, 0.6);
+    border: 2px solid #27042B;
+    border-radius: 1px;
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.alarm-details {
+    flex: 1;
+}
+
+.alarm-details h4 {
+  font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  font-weight: 600; /* Semibold */
+  font-size: 24px; /* Tamaño de fuente de 24px */
+  color: #FFFFFF; /* Color blanco */
+  margin-bottom: 0.5rem;
+}
+
+.alarm-meta {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.alarm-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.alarm-time span:last-child {
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+}
+
+.alarm-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.alarm-actions i {
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Opciones de edición y eliminación */
+.alarm-actions i.fa-edit:hover {
+    color: #ffc107; /* Color amarillo */
+}
+
+.alarm-actions i.fa-trash:hover {
+    color: #dc3545; /* Color rojo */
+}
+
+.icon-vibration {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+  vertical-align: middle; /* Alineación con el texto */
+}
+
+.ringtone-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: white;
+  vertical-align: middle;
+}
+
+.days {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: black;
+  margin-top: 0.3rem; /* Espacio entre el "Ringtone" y los días */
+}
+
+.time-wrapper {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hour {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: normal;
+  margin-right: 3rem;
+  margin-top: -1rem;
+}
+.minute-ampm-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+.minute {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: normal;
+  margin-top: -1.5rem;
+  margin-right: 0.2rem;
+  margin-left: 0rem;
+}
+
+.ampm {
+  font-family: 'Abril Fatface';
+    font-size: 7px;
+    color: white;
+    margin-left: 5px;
+    margin-right: 0rem;
+}
+
+.delete-btn {
+  margin-top: -4rem;
+  margin-right: 0rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.delete-icon {
+  width: 32px;
+  height: 32px;
+}

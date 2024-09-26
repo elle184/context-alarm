@@ -1,0 +1,146 @@
+.sectionImages{
+    margin-top: 0.3rem;
+  }
+
+  .sectionBorder{
+    margin-top: 2rem;
+    border: 5px;
+    border-color: black;
+  }
+  .botonLogin{
+    margin-right: 1rem;
+    width: 142px;
+    height: 46px;
+    border-color: #27042B; 
+    background-color: #985D9C;    
+    font-family: Roboto;
+    color: #FFFFFF;  
+    font-size: 16px;
+  }
+
+  #principal {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #BCBCBC;
+  }
+
+  #sidebar-container{
+    min-height: 100vh;
+  }
+
+  .bg-primary{
+    background-color: rgba(152, 93, 156, 0.6) !important;
+  }
+  .line1{
+    border-bottom: 2px solid #FFFFFF;
+  }
+
+  .line{
+    border-bottom: 1px solid #BCBCBC;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 1rem;
+  }
+
+  #sidebar-container .menu{
+    width: 18rem;
+  }
+
+  .circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #27042B  !important;
+    background-color: #985D9C !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  .circle2 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid #27042B  !important;
+    background-color: #FFFFFF !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .fa-clock {
+    color: white !important;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;    
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #FFFFFF;
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    font-size: 20px; /* Tamaño de letra de 24px */
+    color: black; /* Color negro */
+}
+
+.atipo{
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    font-size: 16px; /* Tamaño de letra de 24px */
+    color: black; /* Color negro */
+}
+
+.report-container {
+    flex: 1;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa; /* Fondo blanco */
+}
+
+/* Tarjetas de los reportes */
+.report-card {
+    background-color: rgba(152, 93, 156, 0.6);
+    border: 2px solid #27042B;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+    padding-top: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.report-card h4 {
+  font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  font-weight: 600; /* Semibold */
+  font-size: 24px; /* Tamaño de fuente de 24px */
+  color: #FFFFFF; /* Color blanco */
+  margin-bottom: 0.5rem;
+}
+
+.report-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.report-card ul li {
+  font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  font-weight: 400; /* Regular */
+  font-size: 16px; /* Tamaño de fuente 16px */
+  color: #FFFFFF; /* Color blanco */
+  margin-top: 0.5rem;
+}
+
+.report-card ul li span {
+    background-color:  rgba(152, 93, 156, 0.5) !important;
+    border: 2px solid #FFFFFF  !important;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    font-family: 'Abril Fatface'; /* Aplica la fuente Abril Fatface */
+    font-weight: 400; /* Regular */
+    font-size: 20px; /* Tamaño de fuente 20px */
+    color: #FFFFFF; /* Color blanco */
+}
