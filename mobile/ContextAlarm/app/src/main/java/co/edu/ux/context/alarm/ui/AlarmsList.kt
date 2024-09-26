@@ -55,15 +55,8 @@ fun AddImage(
 }
 
 @Composable
-fun AddImage(
-    image: Painter
-    , modifier: Modifier = Modifier
-) {
-    Box {
-        IconButton(onClick = {  }) {
-            Icon(painter = image, contentDescription = null, Modifier.size(50.dp))
-        }
-    }
+fun AddImage(image: Painter, modifier: Modifier = Modifier) {
+    Box { Icon(painter = image, contentDescription = null, Modifier.size(50.dp)) }
 }
 
 @Composable
@@ -74,49 +67,27 @@ fun SwitchAlarmState(modifier: Modifier) {
 }
 
 @Composable
-private fun NavigationBarContextAlarm(modifier: Modifier = Modifier) {
+fun NavigationBarContextAlarm(
+    navController: NavController
+    , modifier: Modifier = Modifier) {
     NavigationBar(modifier = modifier) {
         NavigationBarItem(
-            icon = {
-                Icon(
-                    painterResource(id = R.drawable.alarm_icon)
-                    , contentDescription = null)
-            }
-            , label = {
-                Text(
-                    text = "Alarmas"
-                )
-            }
+            icon = { Icon(painterResource(id = R.drawable.alarm_icon), contentDescription = null) }
+            , label = { Text(text = "Alarmas") }
             , selected = true
-            , onClick = { }
+            , onClick = { navController.navigate("alarms") }
         )
         NavigationBarItem(
-            icon = {
-                Icon(
-                    painterResource(id = R.drawable.user_icon)
-                    , contentDescription = null)
-            }
-            , label = {
-                Text(
-                    text = "Alarmas"
-                )
-            }
+            icon = { Icon(painterResource(id = R.drawable.user_icon), contentDescription = null) }
+            , label = { Text(text = "Perfil") }
             , selected = false
             , onClick = {}
         )
         NavigationBarItem(
-            icon = {
-                Icon(
-                    painterResource(id = R.drawable.report_icon)
-                    , contentDescription = null)
-            }
-            , label = {
-                Text(
-                    text = "Alarmas"
-                )
-            }
+            icon = { Icon(painterResource(id = R.drawable.report_icon), contentDescription = null) }
+            , label = { Text(text = "Informes") }
             , selected = false
-            , onClick = {}
+            , onClick = { navController.navigate("reports") }
         )
     }
 }
@@ -135,7 +106,7 @@ fun Alarms(
         Brush.verticalGradient(
             listOf(Color(0xFF985D9C), Color(0xFF27042B))))) {
         Scaffold(
-            bottomBar = { NavigationBarContextAlarm() }
+            bottomBar = { NavigationBarContextAlarm(navController) }
             , containerColor = Color.Transparent
         ) { padding ->
             Column {

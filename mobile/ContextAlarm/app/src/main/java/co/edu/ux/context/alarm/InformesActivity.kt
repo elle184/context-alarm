@@ -35,6 +35,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Brush
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 class InformesActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,33 +46,25 @@ class InformesActivity : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    InformesScreen()
+                    InformesScreen(rememberNavController())
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting3(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview3() {
     ContextAlarmTheme {
-        InformesScreen()
+        InformesScreen(rememberNavController())
     }
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InformesScreen() {
+fun InformesScreen(navController : NavController) {
     Scaffold(
         modifier = Modifier.background(Color(0xFFB838E7)), // Color de fondo
         topBar = {
@@ -126,7 +120,8 @@ fun InformesScreen() {
             }
         }
     ) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)
+        Box(modifier = Modifier
+            .padding(paddingValues)
             .background(
                 color = Color(0xFFB838E7),
             )
