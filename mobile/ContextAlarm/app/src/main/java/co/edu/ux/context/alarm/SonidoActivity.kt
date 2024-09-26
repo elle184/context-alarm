@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -131,7 +132,8 @@ fun SonidoScreen(){
             .fillMaxSize()
             .padding(paddingValues)
             .background(
-                color = Color(0xFFB838E7),
+                Brush.verticalGradient(
+                listOf(Color(0xFF985D9C), Color(0xFF27042B))),
             )
         ) {
             Column(

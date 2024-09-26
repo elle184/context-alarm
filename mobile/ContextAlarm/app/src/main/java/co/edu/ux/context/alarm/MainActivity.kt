@@ -46,8 +46,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
+//import androidx.navigation.NavHostController
+//import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -218,7 +218,7 @@ fun Greeting(alarm: Alarm, modifier: Modifier = Modifier) {
 )
 @Composable
 fun AlarmsList(
-    navController: NavHostController = rememberNavController()
+    //navController: NavHostController = rememberNavController()
 ) {
     ContextAlarmTheme {
         Box(Modifier.background(
