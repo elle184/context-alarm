@@ -46,5 +46,6 @@ fun ContextAlarmTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content
+        , shapes = Shapes
     )
 }
