@@ -13,6 +13,19 @@
         android:theme="@style/Theme.ContextAlarm"
         tools:targetApi="31">
         <activity
+            android:name=".SonidoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sonido"
+            android:theme="@style/Theme.ContextAlarm" />
+        <activity
+            android:name=".InformesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_informes"
+            android:theme="@style/Theme.ContextAlarm" />
+        <activity
+            android:name=".FondoPantalla"
+            android:exported="false"
+            android:label="@string/title_activity_fondo_pantalla"
             android:name=".Reporte"
             android:exported="false"
             android:theme="@style/Theme.ContextAlarm" />
