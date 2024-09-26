@@ -20,7 +20,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -61,6 +68,7 @@ fun GreetingPreview3() {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InformesScreen() {
     Scaffold(
@@ -85,7 +93,7 @@ fun InformesScreen() {
                             .clickable { /* Acción al hacer clic */ }
                     )
                 },
-                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFFB838E7))
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFB838E7))
             )
         },
         bottomBar = {

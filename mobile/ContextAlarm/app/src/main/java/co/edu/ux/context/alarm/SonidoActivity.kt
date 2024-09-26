@@ -92,7 +92,7 @@ fun SonidoScreen(){
                             .clickable { /* Acción al hacer clic */ }
                     )
                 },
-                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFFB838E7))
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFB838E7))
             )
         },
         bottomBar = {
