@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Surface
@@ -45,6 +46,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +57,7 @@ class MainActivity : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    GreetingPreview()
+                    AlarmsList()
                 }
             }
         }
@@ -72,8 +75,9 @@ fun AddImage(
     image: Painter
     , modifier: Modifier = Modifier) {
     Box {
-        Image(painter = image, contentDescription = null
-            , modifier = modifier)
+        IconButton(onClick = { /*TODO*/ }) {
+            Icon(painter = image, contentDescription = null, Modifier.size(50.dp))
+        }
     }
 }
 
@@ -90,7 +94,7 @@ private fun NavigationBarContextAlarm(modifier: Modifier = Modifier) {
         NavigationBarItem(
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Home
+                    painterResource(id = R.drawable.alarm_icon)
                     , contentDescription = null)
             }
             , label = {
@@ -99,6 +103,34 @@ private fun NavigationBarContextAlarm(modifier: Modifier = Modifier) {
                 )
             }
             , selected = true
+            , onClick = {}
+        )
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    painterResource(id = R.drawable.user_icon)
+                    , contentDescription = null)
+            }
+            , label = {
+                Text(
+                    text = "Alarmas"
+                )
+            }
+            , selected = false
+            , onClick = {}
+        )
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    painterResource(id = R.drawable.report_icon)
+                    , contentDescription = null)
+            }
+            , label = {
+                Text(
+                    text = "Alarmas"
+                )
+            }
+            , selected = false
             , onClick = {}
         )
     }
@@ -185,7 +217,9 @@ fun Greeting(alarm: Alarm, modifier: Modifier = Modifier) {
     , name = "GreetingPreviewDark"
 )
 @Composable
-fun GreetingPreview() {
+fun AlarmsList(
+    navController: NavHostController = rememberNavController()
+) {
     ContextAlarmTheme {
         Box(Modifier.background(
             Brush.verticalGradient(
