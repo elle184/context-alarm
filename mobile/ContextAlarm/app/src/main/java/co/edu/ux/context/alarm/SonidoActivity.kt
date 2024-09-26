@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.Typeface
-
-
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 
 class SonidoActivity : ComponentActivity() {
@@ -41,7 +41,7 @@ class SonidoActivity : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    SonidoScreen()
+                    SonidoScreen(rememberNavController())
                 }
             }
         }
@@ -61,17 +61,18 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview4() {
     ContextAlarmTheme {
-        SonidoScreen()
+        SonidoScreen(rememberNavController())
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SonidoScreen(){
+fun SonidoScreen(navController : NavController){
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFB838E7)), // Color de fondo
+            .background(Brush.verticalGradient(
+                listOf(Color(0xFF985D9C), Color(0xFF27042B)))), // Color de fondo
         topBar = {
             TopAppBar(
                 title = {
@@ -89,10 +90,10 @@ fun SonidoScreen(){
                         modifier = Modifier
                             .padding(start = 16.dp)
                             .size(21.dp, 26.dp)
-                            .clickable { /* Acción al hacer clic */ }
+                            .clickable { navController.popBackStack()}
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFB838E7))
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF985D9C))
             )
         },
         bottomBar = {
@@ -105,7 +106,7 @@ fun SonidoScreen(){
                         contentDescription = "Alarmas") }, // Icono de alarmas
                     label = { Text("Alarmas",fontSize = 12.sp) },
                     selected = true,
-                    onClick = { /* Acción para Alarmas */ }
+                    onClick = { navController.navigate("alarms")  }
                 )
                 NavigationBarItem(
                     icon = { Icon(
@@ -123,7 +124,7 @@ fun SonidoScreen(){
                         contentDescription = "Informes") }, // Icono de informes
                     label = { Text("Informes",fontSize = 12.sp) },
                     selected = false,
-                    onClick = { /* Acción para Informes */ }
+                    onClick = { navController.navigate("reports") }
                 )
             }
         }
@@ -183,7 +184,7 @@ fun SonidoScreen(){
 
                 Row(modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0x25B838E7))
+                    .background(Color(0x00000000))
                     .padding(vertical = 20.dp),
                     verticalAlignment = Alignment.CenterVertically){
                     Icon(
@@ -201,7 +202,7 @@ fun SonidoScreen(){
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(Color(0x25B838E7))
+                        .background(Color(0x10B838E7))
                         .padding(vertical = 15.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -242,7 +243,7 @@ fun SonidoScreen(){
 
                 Row(modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0x25B838E7))
+                    .background(Color(0x00000000))
                     .padding(vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically){
                     Icon(
@@ -291,7 +292,7 @@ fun SonidoScreen(){
                 }
                 Row(modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0x25B838E7))
+                    .background(Color(0x00000000))
                     .padding(vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically){
                     Icon(

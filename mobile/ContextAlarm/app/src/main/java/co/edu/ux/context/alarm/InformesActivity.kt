@@ -66,7 +66,8 @@ fun GreetingPreview3() {
 @Composable
 fun InformesScreen(navController : NavController) {
     Scaffold(
-        modifier = Modifier.background(Color(0xFFB838E7)), // Color de fondo
+        modifier = Modifier.background( Brush.verticalGradient(
+            listOf(Color(0xFF985D9C), Color(0xFF27042B)))), // Color de fondo
         topBar = {
             TopAppBar(
                 title = {
@@ -84,10 +85,10 @@ fun InformesScreen(navController : NavController) {
                         modifier = Modifier
                             .padding(start = 16.dp)
                             .size(21.dp, 26.dp)
-                            .clickable { /* Acción al hacer clic */ }
+                            .clickable { navController.popBackStack() }
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFB838E7))
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF985D9C))
             )
         },
         bottomBar = {
@@ -99,7 +100,7 @@ fun InformesScreen(navController : NavController) {
                         contentDescription = "Alarmas") }, // Icono de alarmas
                     label = { Text("Alarmas",fontSize = 12.sp) },
                     selected = true,
-                    onClick = { /* Acción para Alarmas */ }
+                    onClick = { navController.navigate("alarms")  }
                 )
                 NavigationBarItem(
                     icon = { Icon(painterResource(id = R.drawable.access_perfil),
@@ -107,7 +108,7 @@ fun InformesScreen(navController : NavController) {
                         contentDescription = "Perfil") }, // Icono de perfil
                     label = { Text("Perfil",fontSize = 12.sp) },
                     selected = false,
-                    onClick = { /* Acción para Perfil */ }
+                    onClick = { }
                 )
                 NavigationBarItem(
                     icon = { Icon(painterResource(id = R.drawable.acces_informes),
@@ -115,7 +116,7 @@ fun InformesScreen(navController : NavController) {
                         contentDescription = "Informes") }, // Icono de informes
                     label = { Text("Informes",fontSize = 12.sp) },
                     selected = false,
-                    onClick = { /* Acción para Informes */ }
+                    onClick = { navController.navigate("reports") }
                 )
             }
         }
@@ -123,7 +124,9 @@ fun InformesScreen(navController : NavController) {
         Box(modifier = Modifier
             .padding(paddingValues)
             .background(
-                color = Color(0xFFB838E7),
+                Brush.verticalGradient(
+                    listOf(Color(0xFF985D9C), Color(0xFF27042B))
+                ),
             )
         ) {
             InformesList()

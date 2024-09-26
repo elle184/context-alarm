@@ -32,6 +32,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.border
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.ui.graphics.Brush
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 class FondoPantalla : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +44,7 @@ class FondoPantalla : ComponentActivity() {
             ContextAlarmTheme {
                 Surface(modifier = Modifier.fillMaxSize()
                     , color = MaterialTheme.colorScheme.background) {
-                    AlarmDetailScreen()
+                    AlarmDetailScreen(rememberNavController())
                 }
             }
         }
@@ -60,16 +63,17 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview2() {
     ContextAlarmTheme {
-        AlarmDetailScreen()
+        AlarmDetailScreen(rememberNavController())
     }
 }
 
 @Composable
-fun AlarmDetailScreen() {
+fun AlarmDetailScreen(navController : NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFB838E7)) // Fondo morado que rodea la pantalla
+            .background( Brush.verticalGradient(
+                listOf(Color(0xFF985D9C), Color(0xFF27042B)))) // Fondo morado que rodea la pantalla
     ) {
         // Imagen de fondo
         Image(
@@ -104,7 +108,7 @@ fun AlarmDetailScreen() {
 
             // Botón "Realizado"
             Button(
-                onClick = { /* Acción del botón */ },
+                onClick = { navController.navigate("alarms")},
                 shape = RoundedCornerShape(5.dp),
                 modifier = Modifier.size(110.dp, 35.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFFE299CE))

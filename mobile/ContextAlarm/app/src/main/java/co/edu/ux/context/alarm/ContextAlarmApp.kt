@@ -12,5 +12,7 @@ fun ContextAlarmApp() {
         composable("createAlarm") { CreateAlarm(navController) }
         composable("alarms") { Alarms(navController) }
         composable("reports") { InformesScreen(navController) }
+        composable("sonido") { SonidoScreen(navController) }
+        composable("fondoPantalla") { AlarmDetailScreen(navController) }
     }
 }

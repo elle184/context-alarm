@@ -3,6 +3,7 @@ package co.edu.ux.context.alarm
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -47,10 +48,10 @@ fun CreateAlarm(navController: NavController) {
                 Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
                     SelectHour(onConfirm = { /*TODO*/ }) { }
                     SelectWeekdays({}, Modifier.padding(horizontal = 1.dp))
-                    SelectRingtone(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
+                    SelectRingtone(Modifier.padding(horizontal = 8.dp, vertical = 8.dp),navController)
                     SelectVibration(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
                     SelectReminder(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
-                    SelectBackground(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
+                    SelectBackground(Modifier.padding(horizontal = 8.dp, vertical = 8.dp),navController)
                     NotifyReminder(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
                     SelectLocation(Modifier.padding(horizontal = 8.dp, vertical = 8.dp))
                 }
@@ -86,8 +87,8 @@ fun SelectWeekdays(onClick: () -> Unit, modifier: Modifier) {
 }
 
 @Composable
-fun SelectRingtone(modifier: Modifier) {
-    Row(modifier) {
+fun SelectRingtone(modifier: Modifier, navController: NavController) {
+    Row(modifier.clickable { navController.navigate("sonido") }) {
         Column {
             Text("Sonido de alarma")
             Text("November rain - Guns N Roses"
@@ -124,8 +125,8 @@ fun SelectReminder(modifier: Modifier) {
 }
 
 @Composable
-fun SelectBackground(modifier: Modifier) {
-    Column(modifier) {
+fun SelectBackground(modifier: Modifier , navController: NavController) {
+    Column(modifier.clickable { navController.navigate("sonido") }) {
         Text("Fondo de la alarma")
         Image(
             painterResource(id = R.drawable.background_alarm_preview)
